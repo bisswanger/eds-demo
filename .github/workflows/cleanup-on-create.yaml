@@ -30,14 +30,14 @@ jobs:
             CHANGELOG.md
 
       - name: Initialize README
-        # replace eds-demo and bisswanger with the actual values
+        # replace {repo} and {owner} with the actual values
         run: |
-          sed -i.bak "s/eds-demo/$(basename ${{ github.repository }})/g" README.md
-          sed -i.bak "s/bisswanger/$(dirname ${{ github.repository }})/g" README.md
+          sed -i.bak "s/{repo}/$(basename ${{ github.repository }})/g" README.md
+          sed -i.bak "s/{owner}/$(dirname ${{ github.repository }})/g" README.md
       - name: Initialize Pull Request Template
         run: |
-          sed -i.bak "s/eds-demo/$(basename ${{ github.repository }})/g" .github/pull_request_template.md
-          sed -i.bak "s/bisswanger/$(dirname ${{ github.repository }})/g" .github/pull_request_template.md
+          sed -i.bak "s/{repo}/$(basename ${{ github.repository }})/g" .github/pull_request_template.md
+          sed -i.bak "s/{owner}/$(dirname ${{ github.repository }})/g" .github/pull_request_template.md
 
 
         # commit back to the repository
